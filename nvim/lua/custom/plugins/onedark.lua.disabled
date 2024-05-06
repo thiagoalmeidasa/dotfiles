@@ -1,0 +1,6 @@
+-- return {
+--   'ii14/onedark.nvim',
+--   config = function(plugin)
+--     vim.cmd.colorscheme 'onedark'
+--   end,
+-- }
