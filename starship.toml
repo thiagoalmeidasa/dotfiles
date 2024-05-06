@@ -1,11 +1,10 @@
 format = """
 $username\
 $hostname\
+$directory\
 $localip\
 $shlvl\
 $singularity\
-$kubernetes\
-$directory\
 $vcsh\
 $fossil_branch\
 $fossil_metrics\
@@ -70,6 +69,7 @@ $spack\
 $memory_usage\
 $aws\
 $gcloud\
+$kubernetes\
 $openstack\
 $azure\
 $direnv\
@@ -94,6 +94,7 @@ error_symbol = '[➜](bold red)' # The 'success_symbol' segment is being set to 
 
 [aws]
 symbol = " "
+region_aliases = { ap-southeast-1 = 'ap1', eu-north-1 = 'en1', eu-west-1 = 'ew1', us-east-1 = 'ue1' }
 
 [buf]
 symbol = " "
@@ -118,7 +119,9 @@ fish_style_pwd_dir_length = 4
 truncation_symbol = '…/'
 
 [docker_context]
-symbol = " "
+disabled = true
+symbol = "🐋 "
+format = 'via [$symbol](blue bold)'
 
 [elixir]
 symbol = " "
@@ -190,6 +193,7 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+disabled = true
 
 [ocaml]
 symbol = " "
@@ -291,20 +295,19 @@ disabled = false
 [gcloud]
 # detect_env_vars = ['$active']
 format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
-# symbol = "󱇶 "
-# # symbol = '️🇬️ '
 symbol = " "
-# # symbol = " "
-# # symbol = " "
-# symbol = " "
+region_aliases = { us-central1 = 'uc1', asia-northeast1 = 'an1', europe-north1 = 'eu1' }
+
 
 [kubernetes]
 disabled = false
+symbol = "☸ "
+format = '[$symbol$context(\($namespace\))]($style) in '
+contexts = [
+  { context_pattern = "gke_(?P<project>[\\w-]+)_(?P<zone>[\\w-]+)_(?P<cluster>[\\w-]+)", context_alias = "gke-$cluster-$zone" },
+]
 
-[[kubernetes.contexts]]
-# Using capture groups
-# Contexts from GKE, AWS and other cloud providers usually carry additional information, like the region/zone.
-# The following entry matches on the GKE format (`gke_projectname_zone_cluster-name`)
-# and renames every matching kube context into a more readable format (`gke-cluster-name`):
-context_pattern = "gke_(?P<project>[\\w-]+)_(?P<zone>[\\w-]+)_(?P<cluster>[\\w-]+)"
-context_alias = "gke-$cluster-$zone"
+[terraform]
+# format = "via [$version](style) "
+symbol = "󱁢 "
+format = '[$symbol$version]($style) '
