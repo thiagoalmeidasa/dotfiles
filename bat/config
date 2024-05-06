@@ -1,0 +1,2 @@
+--theme="TwoDark"
+--pager="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse --no-init"
