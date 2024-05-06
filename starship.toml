@@ -294,7 +294,8 @@ disabled = false
 
 [gcloud]
 # detect_env_vars = ['$active']
-format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
+# format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
+format = '[$symbol$active(\($project\))]($style) '
 symbol = " "
 region_aliases = { us-central1 = 'uc1', asia-northeast1 = 'an1', europe-north1 = 'eu1' }
 
