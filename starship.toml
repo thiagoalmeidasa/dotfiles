@@ -94,7 +94,7 @@ error_symbol = '[➜](bold red)' # The 'success_symbol' segment is being set to 
 
 [aws]
 symbol = " "
-region_aliases = { ap-southeast-1 = 'ap1', eu-north-1 = 'en1', eu-west-1 = 'ew1', us-east-1 = 'ue1' }
+region_aliases = { ap-southeast-1 = 'aps1', eu-north-1 = 'eun1', eu-west-1 = 'euw1', us-east-1 = 'use1' }
 
 [buf]
 symbol = " "
@@ -297,7 +297,7 @@ disabled = false
 # format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
 format = '[$symbol$active(\($project\))]($style) '
 symbol = " "
-region_aliases = { us-central1 = 'uc1', asia-northeast1 = 'an1', europe-north1 = 'eu1' }
+region_aliases = { us-central1 = 'usc1', asia-northeast1 = 'asn1', europe-north1 = 'eun1' }
 
 
 [kubernetes]
