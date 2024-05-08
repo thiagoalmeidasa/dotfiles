@@ -605,9 +605,10 @@ require('lazy').setup({
       },
       formatters_by_ft = {
         go = { 'goimports', 'gofmt' },
+        helm = { "prettier" },
         javascript = { { 'prettierd', 'prettier' } },
-        python = { { 'ruff_format', 'isort', 'black', 'yapf' } },
         lua = { 'stylua' },
+        python = { { 'ruff_format', 'isort', 'black', 'yapf' } },
         sh = { 'shfmt', 'shellcheck' },
         terraform = { 'terraform_fmt' },
         yaml = { 'yamlfmt' },
