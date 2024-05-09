@@ -602,13 +602,17 @@ require('lazy').setup({
         shfmt = {
           prepend_args = { '-i', '2', '-ci' },
         },
+        yapf = {
+          prepend_args = { '--style', '{based_on_style: pep8, indent_width: 2}' }
+        },
+
       },
       formatters_by_ft = {
         go = { 'goimports', 'gofmt' },
         helm = { "prettier" },
         javascript = { { 'prettierd', 'prettier' } },
         lua = { 'stylua' },
-        python = { { 'ruff_format', 'isort', 'black', 'yapf' } },
+        python = { 'ruff_format', 'isort', { 'yapf', 'black' } },
         sh = { 'shfmt', 'shellcheck' },
         terraform = { 'terraform_fmt' },
         yaml = { 'yamlfmt' },
