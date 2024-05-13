@@ -1,0 +1,10 @@
+# https://raw.githubusercontent.com/dustinkirkland/byobu/master/usr/share/byobu/keybindings/mouse.tmux.disable
+# New, as of tmux 2.1
+set -g mouse on
+# set -g mouse-utf8 on
+# Old, before tmux 2.1
+# set -g mouse-resize-pane on
+# set -g mouse-select-pane on
+# set -g mouse-select-window on
+# set -g mode-mouse on
+bind-key -n M-F12 source ~/.config/tmux/mouse.tmux.enable \; display-message "Mouse: OFF"
