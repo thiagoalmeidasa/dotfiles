@@ -524,6 +524,7 @@ require('lazy').setup({
         'bashls',
         'dockerls',
         'flake8',
+        'fixjson',
         'hadolint',
         'hclfmt',
         'helm_ls',
@@ -614,7 +615,11 @@ require('lazy').setup({
         python = { 'ruff_format', 'isort', { 'yapf', 'black' } },
         sh = { 'shfmt', 'shellcheck' },
         terraform = { 'terraform_fmt' },
+        tf = { 'terraform_fmt' },
+        ['terraform-vars'] = { 'terraform_fmt' },
         yaml = { 'yamlfmt' },
+        json = { 'prettier', 'fixjson', 'jq' },
+        hcon = { 'pyhocon' },
 
         -- Use the "*" filetype to run formatters on all filetypes.
         ['*'] = { 'codespell' },
@@ -659,15 +664,21 @@ require('lazy').setup({
           },
         },
       },
+      'f3fora/cmp-spell',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp-document-symbol',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-path',
+      'onsails/lspkind.nvim',
       'saadparwaiz1/cmp_luasnip',
-
-      -- Adds other completion capabilities.
-      --  nvim-cmp does not ship with all sources by default. They are split
-      --  into multiple repos for maintenance purposes.
+      'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-buffer',
       'ray-x/cmp-treesitter',
+      'saadparwaiz1/cmp_luasnip',
     },
     config = function()
       -- See `:help cmp`
@@ -736,12 +747,39 @@ require('lazy').setup({
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'path' },
           { name = 'buffer' },
+          { name = 'luasnip' },
+          { name = 'nvim_lsp' },
+          { name = 'nvim_lsp_signature_help' },
+          { name = 'nvim_lua' },
+          { name = 'path' },
           { name = 'treesitter' },
         },
+
+        cmp.setup.cmdline({ '/', '?' }, {
+          sources = {
+            { name = 'nvim_lsp_document_symbol' },
+            -- { name = 'buffer' },
+          },
+        }),
+
+        -- cmp.setup.cmdline(':', {
+        --   mapping = cmp.mapping.preset.cmdline(),
+        --   sources = cmp.config.sources({
+        --     { name = 'path' },
+        --   }, {
+        --     { name = 'cmdline' },
+        --   }),
+        -- }),
+
+        cmp.setup.filetype('gitcommit', {
+          sources = cmp.config.sources({
+            { name = 'luasnip' },
+            { name = 'spell' },
+          }, {
+            { name = 'buffer' },
+          }),
+        }),
       }
     end,
   },
@@ -867,6 +905,7 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.filetype',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

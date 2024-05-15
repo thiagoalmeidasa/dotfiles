@@ -7,8 +7,15 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
-        dockerfile = { "hadolint" },
-        terraform = { "tflint" },
+        dockerfile = { 'hadolint' },
+        terraform = { 'tflint', 'terraform_validate' },
+        tf = { 'tflint', 'terraform_validate' },
+        yaml = { 'yamllint' },
+        shell = { 'shellcheck' },
+        sh = { 'shellcheck' },
+        python = { 'ruff', 'pylint', 'mypy', 'flake8' },
+        json = { 'jsonlint', 'jq' },
+        ["yaml.ghaction"] = { 'actionlint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
