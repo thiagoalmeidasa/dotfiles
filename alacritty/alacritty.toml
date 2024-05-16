@@ -52,7 +52,7 @@ TERM = "xterm-256color"
 
 [[hints.enabled]]
 action = "copy"
-regex = "([0-9a-f]{40}([0-9a-f]{24})?)|([0-9a-f]{7,10})"
+regex = "([0-9a-f]{40}([0-9a-f]{24})?)|([0-9a-f]{7,16})"
 
 [hints.enabled.binding]
 key = "S"
