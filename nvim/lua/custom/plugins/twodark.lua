@@ -1,3 +1,0 @@
-return {
-  'robeirne/twodark.vim'
-}

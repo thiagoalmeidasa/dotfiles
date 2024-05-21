@@ -1,3 +1,0 @@
-return {
-  'VDuchauffour/neodark.nvim'
-}
