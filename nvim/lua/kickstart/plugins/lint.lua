@@ -13,7 +13,7 @@ return {
         yaml = { 'yamllint' },
         shell = { 'shellcheck' },
         sh = { 'shellcheck' },
-        python = { 'ruff', 'pylint', 'mypy', 'flake8' },
+        python = { 'ruff'}, -- 'pylint', 'mypy', 'flake8' },
         json = { 'jsonlint', 'jq' },
         ["yaml.ghaction"] = { 'actionlint' },
       }
