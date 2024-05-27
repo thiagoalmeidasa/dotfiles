@@ -1,7 +1,8 @@
 return {
   -- 'rakr/vim-one',
   'rvighne/vim-one',
-  -- priority = 1000, -- Ensure it loads first
+  ---   call <sid>X('NormalFloat',  s:syntax_fg,     s:syntax_bg,      '')
+  priority = 1000, -- Ensure it loads first
   init = function()
     -- Load the colorscheme here.
     -- vim.cmd.colorscheme 'neodark'
