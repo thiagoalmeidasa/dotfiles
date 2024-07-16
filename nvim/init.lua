@@ -488,6 +488,24 @@ require('lazy').setup({
         -- tsserver = {},
         --
 
+        yamlls = {
+          settings = {
+            yaml = {
+              schemaStore = {
+                url = 'https://www.schemastore.org/api/json/catalog.json',
+                enable = true,
+              },
+              -- schemas = {
+              --   -- ['https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json'] = '.gitlab-ci.yml',
+              --   -- ['https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json'] = 'ci/*.yml',
+              --   --
+              --   -- ['https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master-standalone-strict/all.json'] = '*.yaml',
+              --   -- ['kubernetes'] = "*.{yaml,yml}"
+              -- },
+            },
+          },
+        },
+
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},

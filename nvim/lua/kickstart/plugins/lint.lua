@@ -13,9 +13,9 @@ return {
         yaml = { 'yamllint' },
         shell = { 'shellcheck' },
         sh = { 'shellcheck' },
-        python = { 'ruff'}, -- 'pylint', 'mypy', 'flake8' },
+        python = { 'ruff' }, -- 'pylint', 'mypy', 'flake8' },
         json = { 'jsonlint', 'jq' },
-        ["yaml.ghaction"] = { 'actionlint' },
+        ['yaml.ghaction'] = { 'actionlint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
