@@ -309,6 +309,17 @@ symbol = "☸ "
 format = '[$symbol$context(\($namespace\))]($style) in '
 contexts = [
   { context_pattern = "gke_(?P<project>[\\w-]+)_(?P<zone>[\\w-]+)_(?P<cluster>[\\w-]+)", context_alias = "gke-$cluster-$zone" },
+  # { context_pattern = "connectgateway_(?P<project>[\\w-]+)_([\\w-]+)_membership-(?P<membership>[\\w-]+)", context_alias = "connectgateway-$membership-$project" },
+
+  # { context_pattern = "connectgateway_(?P<tenant>[\\w-]+)_([\\w-]+)_membership-(?P<membership>[\\w-]+)", context_alias = "serverpod-${tenant}-${region}" },
+  # { context_pattern = "connectgateway_(?P<project>[\\w-]+)_(?P<location>[\\w-]+)_membership-(?P<membership>[\\w-]+)"}
+  # { context_pattern = ".*prod.*", style = "bold red", symbol =  "💔 "},
+  # connectgateway_tenant-prod-435511_europe-west3_membership-tenant-prod-europe-west3-equator
+  { context_pattern = "connectgateway_(?P<tenant>[a-z]+-prod-[\\d]+_(?P<zone>[\\w-]+)_membership-(?P<membership>[\\w-]+)$)", context_alias = "serverpod-${membership}", style = "bold red", symbol =  "🚨 " },
+  { context_pattern = "connectgateway_(?P<tenant>[a-z]+-test-[\\d]+_(?P<zone>[\\w-]+)_membership-(?P<membership>[\\w-]+)$)", context_alias = "serverpod-${membership}", style = "bold yellow", symbol =  "💥 " },
+  { context_pattern = "connectgateway_(?P<tenant>[\\w-]+)_(?P<zone>[\\w-]+)_membership-(?P<membership>[\\w-]+)", context_alias = "serverpod-${membership}" },
+
+
 ]
 
 [terraform]
