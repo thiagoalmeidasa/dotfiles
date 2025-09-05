@@ -253,7 +253,7 @@ return {
         --
         --
         --
-        ['helm-ls'] = {
+        ['helm_ls'] = {
           settings = {
             yamlls = {
               path = 'yaml-language-server',
