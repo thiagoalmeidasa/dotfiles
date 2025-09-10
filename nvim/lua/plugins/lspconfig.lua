@@ -151,6 +151,11 @@ return {
             })
           end
 
+          vim.api.nvim_create_user_command('LspDebug', function()
+            vim.lsp.set_log_level 'debug'
+            require('vim.lsp.log').set_format_func(vim.inspect)
+          end, {})
+
           -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
           --

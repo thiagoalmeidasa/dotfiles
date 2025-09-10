@@ -10,7 +10,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.o.mouse = "v"
+vim.o.mouse = 'v'
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
@@ -20,7 +20,7 @@ vim.o.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
+  vim.o.clipboard = 'unnamedplus'
 end)
 
 -- Enable break indent
@@ -34,7 +34,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.o.signcolumn = "yes"
+vim.o.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -55,10 +55,10 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.o.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
-vim.o.inccommand = "split"
+vim.o.inccommand = 'split'
 
 -- Show which line your cursor is on
 vim.o.cursorline = true
@@ -73,5 +73,8 @@ vim.o.confirm = true
 
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3
+
+-- Reduce logging noise
+vim.lsp.set_log_level 'error'
 
 -- vim: ts=2 sts=2 sw=2 et
