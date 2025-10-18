@@ -90,6 +90,8 @@ return {
         { '<leader>hb', desc = 'Git blame line' },
         { '<leader>hd', desc = 'Git diff against index' },
         { '<leader>hD', desc = 'Git Diff against last commit' },
+        { '<leader>ho', desc = 'Open Diffview', '<cmd>DiffviewOpen<cr>', icon = '' },
+        { '<leader>hc', desc = 'Close Diffview', '<cmd>DiffviewClose<cr>', icon = '' },
 
         -- LSP group
         { 'gr', group = 'LSP [G]oto/[R]efactor', icon = '🔧' },
@@ -137,7 +139,7 @@ return {
         -- Special keymaps
         { '<leader><leader>', desc = 'Find existing buffers' },
         { '<leader>/', desc = 'Fuzzily search in current buffer' },
-        { '\\', desc = 'NeoTree reveal' },
+        -- { '\\', desc = 'NeoTree reveal' },
 
         -- SOPS operations (LocalLeader)
         { '<LocalLeader>s', group = 'SOPS', icon = '🔐' },

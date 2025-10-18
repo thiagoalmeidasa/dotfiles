@@ -42,7 +42,6 @@ return {
             l = 'child_or_open',
             ['oa'] = 'avante_add_files',
           },
-          auto_expand_width = true,
         },
         filtered_items = {
           visible = true,

@@ -213,11 +213,6 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- serverpod = {
-        --   cmd = { 'serverpod', 'language-server', '--stdio' },
-        --   filetypes = { 'serverpod' },
-        --   capabilities = { '' },
-        -- },
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -300,9 +295,18 @@ return {
       -- The following loop will configure each server with the capabilities we defined above.
       -- This will ensure that all servers have the same base configuration, but also
       -- allow for server-specific overrides.
+      -- for server_name, server_config in pairs(servers) do
+      --   server_config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_config.capabilities or {})
+      --   vim.lsp.config(server_name, server_config)
+      --   vim.lsp.enable(server_name)
+      -- The following loop will configure each server with the capabilities we defined above.
+      -- This will ensure that all servers have the same base configuration, but also
+      -- allow for server-specific overrides.
       for server_name, server_config in pairs(servers) do
         server_config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_config.capabilities or {})
         require('lspconfig')[server_name].setup(server_config)
+        -- vim.lsp.config(server_name, server_config)
+        -- vim.lsp.enable(server_name)
       end
 
       -- Ensure the servers and tools above are installed
